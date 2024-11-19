@@ -1,0 +1,22 @@
+{
+    "Packages": [
+        "Git.Git",
+        "GoLang.Go",
+        "KeePassXCTeam.KeePassXC",
+        "Microsoft.VisualStudioCode",
+        "Mozilla.Firefox",
+        "JanDeDobbeleer.OhMyPosh",
+        "Python.Python.3.12",
+        "Valve.Steam"
+    ],
+    "Fonts": [
+        {
+            "name": "FiraCode",
+            "source": "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.zip"
+        },
+        {
+            "Name": "FiraMono",
+            "Source": "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraMono.zip"
+        }
+    ]
+}
