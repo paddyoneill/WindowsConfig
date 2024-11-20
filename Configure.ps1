@@ -1,7 +1,4 @@
-﻿# TODO
-# Add Powershell Profile
-
-# Elevate to admin if needed
+﻿# Elevate to admin if needed
 $myWindowsID = [System.Security.Principal.WindowsIdentity]::GetCurrent()
 $myWindowsPrincipal = New-Object System.Security.Principal.WindowsPrincipal($myWindowsID)
 $adminRole = [System.Security.Principal.WindowsBuiltInRole]::Administrator
@@ -95,13 +92,23 @@ foreach ( $Font in $FontList)
 }
 
 
+###########################
+# Link PowerShell Profile #
+###########################
+if (-not (Test-Path -Path $PROFILE))
+{
+    Write-Host "Creating link for PowerShell Profile"
+    New-Item -Path $PROFILE -ItemType SymbolicLink -Value $PSScriptRoot\PowerShell_profile.ps1
+}
+
 ##################
 # Enable Hyper-V #
 ##################
 
 $HyperVState = Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V | Select-Object State
 
-if ( $HyperVState -match "Disabled" ) {
+if ( $HyperVState -match "Disabled" )
+{
     Write-Host "Enabling Hyper-V"
     Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
     $RebootRequired = $true
